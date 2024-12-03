@@ -30,4 +30,8 @@ object FileReader {
                     .map(String::toInt)
 
             }
+
+    fun readString(filename: String): String =
+        ClassLoader.getSystemResource(filename)
+            .readText()
 }
