@@ -20,7 +20,7 @@ class FileReaderTest {
     }
 
     @Test
-    fun readsLists() {
+    fun readLists() {
         val expected = listOf(
             listOf(15131, 32438, 12503, 73808, 57168),
             listOf(78158, 35057, 57702, 43128, 71761)
@@ -32,9 +32,8 @@ class FileReaderTest {
         assertIterableEquals(actual.second, expected.last())
     }
 
-
     @Test
-    fun readsReports() {
+    fun readReports() {
         val expected = listOf(
             listOf(7, 6, 4, 2, 1),
             listOf(1, 2, 7, 8, 9),
@@ -46,6 +45,22 @@ class FileReaderTest {
 
         assertIterableEquals(actual[0], expected.first())
         assertIterableEquals(actual[3], expected.last())
+    }
+
+    @Test
+    fun readArray() {
+        val expected = arrayOf(
+            charArrayOf('.', '.', 'X', '.', '.', '.'),
+            charArrayOf('.', 'S', 'A', 'M', 'X', '.'),
+            charArrayOf('.', 'A', '.', '.', 'A', '.'),
+            charArrayOf('X', 'M', 'A', 'S', '.', 'S'),
+            charArrayOf('.', 'X', '.', '.', '.', '.')
+        )
+
+        val actual = fileReader.readArray("filereader_array_test.txt")
+
+        assertArrayEquals(actual.first(), expected.first())
+        assertArrayEquals(actual[3], expected[3])
     }
 }
 
