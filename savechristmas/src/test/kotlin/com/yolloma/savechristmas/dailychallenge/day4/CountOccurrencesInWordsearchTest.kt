@@ -15,7 +15,7 @@ class CountOccurrencesInWordsearchTest {
             charArrayOf('.', 'X', '.', '.', '.', '.')
         )
 
-        assertEquals(4, CountOccurrencesInWordsearch.execute(input))
+        assertEquals(0, CountOccurrencesInWordsearch.execute(input))
     }
 
     @Test
@@ -35,6 +35,6 @@ class CountOccurrencesInWordsearchTest {
             .map { it.toCharArray() }
             .toTypedArray()
 
-        assertEquals(18, CountOccurrencesInWordsearch.execute(input))
+        assertEquals(9, CountOccurrencesInWordsearch.execute(input))
     }
 }

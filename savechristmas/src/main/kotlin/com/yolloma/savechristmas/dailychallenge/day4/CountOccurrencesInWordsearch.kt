@@ -2,43 +2,33 @@ package com.yolloma.savechristmas.dailychallenge.day4
 
 object CountOccurrencesInWordsearch {
 
-    private val directions = listOf(
-        listOf(-1, 0),
-        listOf(-1, 1),
-        listOf(0, 1),
-        listOf(1, 1),
-        listOf(1, 0),
-        listOf(1, -1),
-        listOf(0, -1),
-        listOf(-1, -1),
-    )
-
     fun execute(input: Array<CharArray>): Int {
         var counter = 0
 
         for (i in input.indices) {
             for (j in input[0].indices) {
 
-                if (input[i][j] == 'X') {
-                    directions.forEach { dir ->
-                        val xmas = checkDirection(input, dir, i, j)
-                        if (xmas) counter++
-                    }
+                if (input[i][j] == 'A') {
+                    val xmas = checkDirection(input, i, j)
+                    if (xmas) counter++
                 }
-
             }
         }
 
         return counter
     }
 
-    private fun checkDirection(input: Array<CharArray>, dir: List<Int>, i: Int, j: Int): Boolean {
-        val iDir = dir[0]
-        val jDir = dir[1]
+    private fun checkDirection(input: Array<CharArray>, i: Int, j: Int): Boolean {
+        if (i == 0 || i == input.indices.max() || j == 0 || j == input[0].indices.max()) return false
 
-        if (!input.indices.contains(i + (iDir * 3)) || !input[0].indices.contains(j + (jDir * 3))) return false
+        val iDir1 = -1
+        val jDir1 = 1
 
-        return input[i + iDir][j + jDir] == 'M' && input[i + 2 * iDir][j + 2 * jDir] == 'A' && input[i + 3 * iDir][j + 3 * jDir] == 'S'
+        val iDir2 = -1
+        val jDir2 = -1
+
+        return listOf(input[i + iDir1][j + jDir1], input[i - iDir1][j - jDir1]).containsAll(listOf('M', 'S')) &&
+                listOf(input[i + iDir2][j + jDir2], input[i - iDir2][j - jDir2]).containsAll(listOf('M', 'S'))
     }
 
 }
