@@ -14,5 +14,27 @@ class CountOccurrencesInWordsearchTest {
             charArrayOf('X', 'M', 'A', 'S', '.', 'S'),
             charArrayOf('.', 'X', '.', '.', '.', '.')
         )
+
+        assertEquals(4, CountOccurrencesInWordsearch.execute(input))
+    }
+
+    @Test
+    fun solveWordsearchAgain() {
+        val input = listOf(
+            "MMMSXXMASM",
+            "MSAMXMSMSA",
+            "AMXSXMAAMM",
+            "MSAMASMSMX",
+            "XMASAMXAMM",
+            "XXAMMXXAMA",
+            "SMSMSASXSS",
+            "SAXAMASAAA",
+            "MAMMMXMMMM",
+            "MXMXAXMASX"
+        )
+            .map { it.toCharArray() }
+            .toTypedArray()
+
+        assertEquals(18, CountOccurrencesInWordsearch.execute(input))
     }
 }

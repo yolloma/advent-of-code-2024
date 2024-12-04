@@ -1,24 +1,16 @@
 package com.yolloma.savechristmas.dailychallenge.day4
 
+import com.yolloma.savechristmas.dailychallenge.FileReader
+
 object Day4Solver {
 
     fun execute() {
+        val input = FileReader.readArray("day4_input.txt")
+
+        CountOccurrencesInWordsearch.execute(input)
+            .also { println("XMAS count in wordsearch: $it")}
 
     }
 }
 
 
-object CountOccurrencesInWordsearch {
-
-
-    //loop indices
-//if e == X
-// loop through (-1,0,1) indices
-// if e == M
-// check for A and S in same direction
-//increment counter
-    fun execute(input: Array<Array<Char>>): Int {
-        val counter = 0
-        return 0
-    }
-}
