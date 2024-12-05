@@ -1,6 +1,5 @@
 package com.yolloma.savechristmas.dailychallenge
 
-import com.yolloma.savechristmas.dailychallenge.day3.Day3Solver
 import com.yolloma.savechristmas.dailychallenge.day4.Day4Solver
 
 object DailyChallengerSolver {
