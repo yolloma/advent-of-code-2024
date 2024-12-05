@@ -39,5 +39,4 @@ object FileReader {
 
     fun readLines(filename: String) = readString(filename)
         .lines()
-
 }
