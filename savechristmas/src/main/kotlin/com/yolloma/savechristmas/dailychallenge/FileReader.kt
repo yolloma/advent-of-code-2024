@@ -6,8 +6,7 @@ object FileReader {
         val list1 = mutableListOf<Int>()
         val list2 = mutableListOf<Int>()
 
-        readString(filename)
-            .lines()
+        readLines(filename)
             .forEach { line ->
                 line.split("   ")
                     .map(String::toInt)
@@ -21,22 +20,24 @@ object FileReader {
     }
 
     fun readReportLevels(filename: String): List<List<Int>> =
-        readString(filename)
-            .lines()
+        readLines(filename)
             .map { line ->
                 line.split(" ")
                     .map(String::toInt)
 
             }
 
+    fun readArray(filename: String): Array<CharArray> =
+        readLines(filename)
+            .map { it.toCharArray() }
+            .toTypedArray()
+
+
     fun readString(filename: String): String =
         ClassLoader.getSystemResource(filename)
             .readText()
 
-    fun readArray(filename: String): Array<CharArray> =
-        readString(filename)
-            .lines()
-            .map { it.toCharArray() }
-            .toTypedArray()
+    fun readLines(filename: String) = readString(filename)
+        .lines()
 
 }

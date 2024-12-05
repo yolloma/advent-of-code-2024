@@ -25,3 +25,8 @@ replay_pid*
 
 # data input files
 *_input.txt
+
+.idea
+build/
+.gradle/
+**/.gradle/
