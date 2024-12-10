@@ -22,4 +22,18 @@ class Part1Test {
         assertEquals(Calibration(190, listOf(10, 19)), asCalibrationEquation("190: 10 19"))
         assertEquals(Calibration(7290, listOf(6, 8, 6, 15)), asCalibrationEquation("7290: 6 8 6 15"))
     }
+
+    @Test
+    fun isSolved() {
+        val actual = input.map(::asCalibrationEquation).map(::toTree).map(Tree::isSolved)
+        val expected = listOf(true, true, false, false, false, false, false, false, true)
+        assertIterableEquals(expected, actual)
+    }
+
+    @Test
+    fun sumSolvable() {
+        val actual = Part1.execute(input)
+
+        assertEquals(3749, actual)
+    }
 }
