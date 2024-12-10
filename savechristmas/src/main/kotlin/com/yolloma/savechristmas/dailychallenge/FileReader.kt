@@ -37,6 +37,7 @@ object FileReader {
         ClassLoader.getSystemResource(filename)
             .readText()
 
-    fun readLines(filename: String) = readString(filename)
-        .lines()
+    fun readLines(filename: String): List<String> =
+        readString(filename)
+            .lines()
 }
