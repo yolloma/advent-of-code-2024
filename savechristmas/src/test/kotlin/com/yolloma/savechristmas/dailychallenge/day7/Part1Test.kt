@@ -1,5 +1,8 @@
 package com.yolloma.savechristmas.dailychallenge.day7
 
+import com.yolloma.savechristmas.dailychallenge.day7.Part1.Calibration
+import com.yolloma.savechristmas.dailychallenge.day7.Part1.Tree
+import com.yolloma.savechristmas.dailychallenge.day7.Part1.toTree
 import org.junit.jupiter.api.Assertions.*
 import kotlin.test.Test
 

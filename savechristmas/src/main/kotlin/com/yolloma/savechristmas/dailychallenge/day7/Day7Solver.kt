@@ -10,10 +10,10 @@ object Day7Solver {
         val input = FileReader.readLines("day7_input.txt")
 
         measureTimedValue {
-            Part1.execute(input)
+            Part2.execute(input)
         }.let {
             println("Total solvable: $it")
-            println("Time elapsed: ${it.duration} secs")
+            println("Time elapsed: ${it.duration}")
         }
     }
 }

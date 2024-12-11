@@ -1,6 +1,6 @@
 package com.yolloma.savechristmas.dailychallenge.day7
 
-object Part1 {
+object Part2 {
 
     fun execute(input: List<String>): Long =
         input.map(::asCalibrationEquation)
@@ -8,6 +8,14 @@ object Part1 {
             .filter(Tree::isSolved)
             .fold(0L) { acc, tree -> acc + tree.target }
 
+    fun asCalibrationEquation(s: String) =
+        s.split(":")
+            .let {
+                Calibration(
+                    result = it.first().toLong(),
+                    testValues = it.last().trim().split(" ").map(String::toLong)
+                )
+            }
 
     fun toTree(calibration: Calibration): Tree =
         Tree(calibration.result)
@@ -21,6 +29,7 @@ object Part1 {
             listOf(
                 Node(total = total * nextVal),
                 Node(total = total + nextVal),
+                Node(total = "$total$nextVal".toLong())
             )
     }
 
@@ -37,12 +46,3 @@ object Part1 {
         fun isSolved() = leaves.any { it.total == target }
     }
 }
-
-fun asCalibrationEquation(s: String) =
-    s.split(":")
-        .let {
-            Part1.Calibration(
-                result = it.first().toLong(),
-                testValues = it.last().trim().split(" ").map(String::toLong)
-            )
-        }
